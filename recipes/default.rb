@@ -17,7 +17,4 @@ end
 
 template '/var/www/index.html' do
   source 'index.html.erb'
-  variables(
-     message: node['simple-web']['message']
-  )
 end
