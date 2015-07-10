@@ -5,3 +5,6 @@ license 'all_rights'
 description 'Installs/Configures total_dbag'
 long_description 'Installs/Configures total_dbag'
 version '0.1.0'
+
+depends 'apt'
+depends 'httpd'
