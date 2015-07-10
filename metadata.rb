@@ -4,7 +4,7 @@ maintainer_email 'you@example.com'
 license 'all_rights'
 description 'Installs/Configures total_dbag'
 long_description 'Installs/Configures total_dbag'
-version '0.1.0'
+version '0.2.0'
 
 depends 'apt'
 depends 'httpd'

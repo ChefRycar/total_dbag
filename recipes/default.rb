@@ -17,4 +17,8 @@ end
 
 template '/var/www/index.html' do
   source 'index.html.erb'
+  variables(
+     user: data_bag_item('password_dbag', 'database')['user'],
+     pass: data_bag_item('password_dbag', 'database')['pass']
+  )
 end
