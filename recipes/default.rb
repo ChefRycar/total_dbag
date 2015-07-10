@@ -15,10 +15,16 @@ httpd_config 'dbag' do
   notifies :restart, 'httpd_service[default]'
 end
 
+chef_gem 'chef-vault' do
+  compile_time true if respond_to?(:compile_time)
+end
+
+require 'chef-vault'
+
 template '/var/www/index.html' do
   source 'index.html.erb'
   variables(
-     user: data_bag_item('password_dbag', 'database')['user'],
-     pass: data_bag_item('password_dbag', 'database')['pass']
+     user: ChefVault::Item.load('password_vault', 'database')['username'],
+     pass: ChefVault::Item.load('password_vault', 'database')['password']
   )
 end
